@@ -21,3 +21,6 @@ For tower at (-2, 2), d = sqrt((-2-0)^2 + (2-0)^2) = sqrt(8) and q = floor(4 / (
 For tower at (1, 1), d = sqrt((1-0)^2 + (1-0)^2) = sqrt(2) and q = floor(3 / (1 + sqrt(2))) = 1
 The network quality at (0, 0) is the sum of these signal qualities, which is 1 + 1 = 2. Since this is the maximum network quality possible, the output is [0, 0].
 
+NOTE* The shared code is best ran on https://www.programiz.com, for accurate output :)
+
+
