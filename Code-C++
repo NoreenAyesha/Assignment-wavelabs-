@@ -1,1 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+vector<int> getBestCoordinate(vector<vector<int>>& towers, int radius) {
+    int maxNetworkQuality = 0;
+    int cx = 0, cy = 0;
+    for (int x = 0; x <= 50; x++) {
+        for (int y = 0; y <= 50; y++) {
+            int networkQuality = 0;
+            for (vector<int> tower : towers) {
+                int tx = tower[0], ty = tower[1], tq = tower[2];
+                double d = sqrt(pow(x - tx, 2) + pow(y - ty, 2));
+                if (d <= radius) {
+                    networkQuality += floor(tq / (1 + d));
+                }
+            }
+            if (networkQuality > maxNetworkQuality) {
+                maxNetworkQuality = networkQuality;
+                cx = x;
+                cy = y;
+            }
+            else if (networkQuality == maxNetworkQuality) {
+                if (x < cx || (x == cx && y < cy)) {
+                    cx = x;
+                    cy = y;
+                }
+            }
+        }
+    }
+    if (maxNetworkQuality == 0) {
+        return {0, 0};
+    }
+    return {cx, cy};
+}
+
+int main() {
+    vector<vector<int>> towers = {{0,0,1},{1,1,1},{1,0,1}};
+    vector<int> res = getBestCoordinate(towers, 2);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    return 0;
+}
 
