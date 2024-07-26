@@ -1,4 +1,4 @@
-# Assignment-wavelabs
+# wavelabs
 
 To solve this problem, you can start by iterating over all the possible integral coordinates on the X-Y plane within a certain range. For each coordinate, calculate the network quality by iterating over all the towers and checking if the distance between the tower and the coordinate is less than or equal to the given radius. If it is, then add the signal quality of that tower to the network quality.
 
